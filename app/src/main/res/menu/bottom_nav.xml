@@ -11,9 +11,9 @@
         android:icon="@drawable/baseline_save_"
         android:title="Save" />
 
-    <item
-        android:id="@+id/searchFragment"
-        android:icon="@drawable/baseline_search_"
-        android:title="Search" />
+<!--    <item-->
+<!--        android:id="@+id/searchFragment"-->
+<!--        android:icon="@drawable/baseline_search_"-->
+<!--        android:title="Search" />-->
 
 </menu>

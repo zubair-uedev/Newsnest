@@ -1,4 +1,5 @@
 package com.example.newsnest.presentation.homescreen.savescreen
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsnest.domain.model.SaveArticle
@@ -20,23 +21,9 @@ class SaveViewModel @Inject constructor(private val saveNewsRepo: SaveNewsRepo) 
         getAllArticle()
     }
 
-    fun saveNews(saveArticle: SaveArticle) {
-        viewModelScope.launch {
-            saveNewsRepo.saveNews(saveArticle = saveArticle)
-        }
-    }
-
     fun deleteArticleByUrl(url: String) {
         viewModelScope.launch {
             saveNewsRepo.deleteArticleByUrl(url)
-        }
-    }
-
-
-    fun isArticleSaved(url: String, onResult: (Boolean) -> Unit) {
-        viewModelScope.launch {
-            val isSaved = saveNewsRepo.isArticleSave(url)
-            onResult(isSaved)
         }
     }
 
@@ -48,4 +35,6 @@ class SaveViewModel @Inject constructor(private val saveNewsRepo: SaveNewsRepo) 
                 }
         }
     }
+
+
 }

@@ -5,4 +5,8 @@
     <color name="light_gray">#a2a2a2</color>
     <color name="highlight_text_color">#2196F3</color>
     <color name="blue">#03A9F4</color>
+    <color name="category_selected">#2196F3</color>
+    <color name="category_unselected">#FFFFFF</color>
+    <color name="text_selected">#FFFFFF</color>
+    <color name="text_unselected">#000000</color>
 </resources>

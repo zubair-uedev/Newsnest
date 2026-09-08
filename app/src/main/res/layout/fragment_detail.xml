@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
     tools:context=".presentation.detailscreen.DetailFragment">
+    <include
+        android:id="@+id/toolBarDetail"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
     <ImageView
         android:id="@+id/detailNewsImage"
         android:layout_width="0dp"
         android:layout_height="250dp"
-        android:contentDescription="News Image"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/news_image"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolBarDetail" />
+
     <TextView
         android:id="@+id/detailTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:maxLines="3"
         android:text="News Title"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:maxLines="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detailNewsImage" />
+
     <TextView
         android:id="@+id/detailDescription"
         android:layout_width="0dp"
@@ -39,6 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detailTitle" />
+
     <ImageView
         android:id="@+id/btnSaveNews"
         android:layout_width="32dp"
@@ -46,9 +57,10 @@
         android:layout_marginTop="10dp"
         android:contentDescription="Save News"
         android:src="@drawable/new_save_btn"
-        app:tint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detailTitle" />
+        app:layout_constraintTop_toBottomOf="@id/detailTitle"
+        app:tint="@color/black" />
+
     <TextView
         android:id="@+id/detailContent"
         android:layout_width="0dp"

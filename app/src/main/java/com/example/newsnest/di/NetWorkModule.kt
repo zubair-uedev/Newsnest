@@ -5,10 +5,8 @@ import androidx.room.Room
 import com.example.newsnest.data.local.db.NewsSaveDB
 import com.example.newsnest.data.local.newsdao.NewsDao
 import com.example.newsnest.data.remote.api.NewApiService
-import com.example.newsnest.data.remote.api.UserApi
 import com.example.newsnest.data.remote.intercepter.ApiKeyInterceptor
-import com.example.newsnest.utils.Constant.BASE_URL
-import com.example.newsnest.utils.Constant.BaseUrl
+import com.example.newsnest.core.shared.utils.Constant.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,27 +17,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-@Module
-@InstallIn(SingletonComponent::class)
-class UserNetworkModule {
-    @UserRetrofit
-    @Provides
-    @Singleton
-    fun provideUserRetrofit(): Retrofit {
-        return Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BaseUrl)
-            .build()
-    }
-
-    @Provides
-    @Singleton
-    fun provideUserApi(
-        @UserRetrofit retrofit: Retrofit
-    ): UserApi {
-        return retrofit.create(UserApi::class.java)
-    }
-}
 
 //news work start hear
 @Module
