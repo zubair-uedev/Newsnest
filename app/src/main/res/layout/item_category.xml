@@ -16,7 +16,7 @@
         android:paddingEnd="16dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:text="ALL"
+        android:text="@string/all"
         android:textSize="14sp"
         android:textStyle="bold"
         android:textColor="@color/black" />

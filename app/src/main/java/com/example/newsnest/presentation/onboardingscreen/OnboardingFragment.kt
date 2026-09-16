@@ -1,45 +1,35 @@
 package com.example.newsnest.presentation.onboardingscreen
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.newsnest.R
+import com.example.newsnest.core.shared.base.BaseFragment
 import com.example.newsnest.databinding.FragmentOnboardingBinding
-import com.example.newsnest.presentation.onboardingscreen.adapter.OnBoardingAdapter
+import com.example.newsnest.core.extensions.launchAndRepeatWithViewLifecycle
+import dagger.hilt.android.AndroidEntryPoint
 
-class OnboardingFragment : Fragment() {
-    private var _binding: FragmentOnboardingBinding? = null
-    val binding get() = _binding!!
+@AndroidEntryPoint
+class OnboardingFragment : BaseFragment<FragmentOnboardingBinding, OnboardingViewModel>(
+    FragmentOnboardingBinding::inflate
+) {
+    override val viewModel: OnboardingViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentOnboardingBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun setupViews() {
+        binding.apply {
+            btnGetStarted.setOnClickListener {
+                viewModel.onGetStartedClicked()
+            }
+        }
     }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val fragmentList = listOf<Fragment>(
-            firstOnBoardingFragment(),
-        )
-
-        val adapter = OnBoardingAdapter(
-            fragmentList,
-            childFragmentManager,
-            lifecycle
-        )
-
-        binding.viewPager.adapter = adapter
-        val viewPager = binding.viewPager
-        binding.dotsIndicator.attachTo(viewPager2 = viewPager)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun observeData() {
+        launchAndRepeatWithViewLifecycle {
+            viewModel.event.collect { event ->
+                when (event) {
+                    OnboardingViewModel.OnboardingEvent.NavigateToHome -> {
+                        findNavController().navigate(R.id.action_onboardingFragment_to_homeFragment)
+                    }
+                }
+            }
+        }
     }
 }

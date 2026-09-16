@@ -25,12 +25,17 @@
     <string name="onbaording_screen">onbaording screen</string>
     <string name="discover_the_latest_news_and_important_stories_in_one_place">Discover the latest news and important stories in one place.</string>
     <string name="next">Next</string>
-    <string name="finish">Finish</string>
+    <string name="get_started">Get Started</string>
     <string name="save_what_matters">Save What Matters</string>
-    <string name="bookmark_your_favorite_stories_and_read_themanytime_anywhere">Bookmark your favorite stories and read themanytime, anywhere.</string>
+    <string name="des">Save the stories that matter to you and read them anytime, anywhere — even offline.</string>
     <string name="browse_news_by_category_technology_sports_business_and_more">Browse news by category — technology, sports, business, and more.</string>
     <string name="search">Search</string>
     <string name="newsnestFirst">NewsNest</string>
     <string name="news_image">News Image</string>
     <string name="detail_screen">Detail Screen</string>
+    <string name="all">ALL</string>
+    <string name="news_image_des">News Image</string>
+    <string name="news_description">News description...</string>
+    <string name="breaking_news_title">Breaking News Title</string>
+    <string name="news_save">News Save</string>
 </resources>

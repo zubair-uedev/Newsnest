@@ -11,13 +11,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle,
-    private val saveNewsRepo: SaveNewsRepo
-) : ViewModel() {
+class DetailViewModel @Inject constructor(savedStateHandle: SavedStateHandle, private val saveNewsRepo: SaveNewsRepo) : ViewModel() {
 
     val article: Article? = savedStateHandle.get<Article>("article")
-
     fun saveNews(saveArticle: SaveArticle) {
         viewModelScope.launch {
             saveNewsRepo.saveNews(saveArticle = saveArticle)

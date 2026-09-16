@@ -7,12 +7,13 @@ import com.bumptech.glide.Glide
 import com.example.newsnest.databinding.ItemNewsBinding
 import com.example.newsnest.domain.model.Article
 
-
 class NewsAdapter(
     private val onNewsClick: (Article) -> Unit,
     private val onSaveClick: (Article) -> Unit
 ) : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+
     private val newsList = mutableListOf<Article>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val binding = ItemNewsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return NewsViewHolder(binding)
@@ -24,8 +25,7 @@ class NewsAdapter(
         )
     }
 
-    inner class NewsViewHolder(private val binding: ItemNewsBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    inner class NewsViewHolder(private val binding: ItemNewsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(article: Article) {
             binding.apply {
                 tvTitle.text = article.title
@@ -37,7 +37,7 @@ class NewsAdapter(
                     onNewsClick(article)
                 }
                 newsSave.setOnClickListener {
-                     onSaveClick(article)
+                    onSaveClick(article)
                 }
             }
         }

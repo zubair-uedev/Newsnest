@@ -1,6 +1,7 @@
 package com.example.newsnest.core.shared.utils
 
 import android.content.Context
+import com.example.newsnest.domain.model.NewsCategory
 
 object Constant {
     const val Tag = "mzubair"
@@ -28,4 +29,17 @@ object Pref {
         return context.getSharedPreferences(PrefName, Context.MODE_PRIVATE)
             .getBoolean(key, false)
     }
+}
+
+object NewsCategories {
+    val list = listOf(
+        NewsCategory("LATEST", null),
+        NewsCategory("BUSINESS", "business"),
+        NewsCategory("ENTERTAINMENT", "entertainment"),
+        NewsCategory("GENERAL", "general"),
+        NewsCategory("HEALTH", "health"),
+        NewsCategory("SCIENCE", "science"),
+        NewsCategory("SPORTS", "sports"),
+        NewsCategory("TECHNOLOGY", "technology")
+    )
 }

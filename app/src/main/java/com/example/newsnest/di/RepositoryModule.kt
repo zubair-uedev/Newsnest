@@ -9,16 +9,12 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
-
-
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class NewsRepositoryModule {
     @Binds
     abstract fun bindNewsRepo(newsRepository: NewsRepository): NewsRepo
 }
-
-//save news provide
 
 //save news bind
 //bind

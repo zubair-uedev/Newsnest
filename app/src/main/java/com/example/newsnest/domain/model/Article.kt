@@ -3,7 +3,6 @@ package com.example.newsnest.domain.model
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
-
 @Parcelize
 data class Article(
     val source: Source,
@@ -14,4 +13,4 @@ data class Article(
     val urlToImage: String?,
     val publishedAt: String,
     val content: String
-): Parcelable
+) : Parcelable

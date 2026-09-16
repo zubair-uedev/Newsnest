@@ -13,6 +13,7 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(private val newsRepo: NewsRepo) : ViewModel() {
     private val _searchState = MutableStateFlow<NewsResponse?>(null)
     val searchState = _searchState.asStateFlow()
+
     fun searchNews(query: String) {
         viewModelScope.launch {
             try {
@@ -24,7 +25,6 @@ class SearchViewModel @Inject constructor(private val newsRepo: NewsRepo) : View
         }
     }
 
-    //by defauly news
     fun loadDefaultNews() {
         viewModelScope.launch {
             try {
